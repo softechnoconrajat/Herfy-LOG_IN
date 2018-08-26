@@ -22,9 +22,6 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
     //   var vT = VechileCurrentTime()
     
     
-    // {} is referred to as closure, or anon. function
-    
-    
     // Logo for the Herfy app
     
     let logo : UIImageView = {
@@ -40,20 +37,7 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }()
     
     
-    
-    
-    // Label for day and Time Display
-    
-//    let dayTimeLabel : UILabel = {
-//        let label = UILabel()
-//
-//        //this enables autolayout for headLabel
-//        label.translatesAutoresizingMaskIntoConstraints = false
-//        label.contentMode = .scaleAspectFit
-//        return label
-//    }()
-    
-    
+
     
     var logOutButton : UIButton = {
 
@@ -65,17 +49,7 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
         button.backgroundColor = UIColor.black
         return button
     }()
-    
-    //Efficency label for Delivered Item
-    
-//    let efficiencyLabel : UILabel = {
-//        let label = UILabel()
-//        label.translatesAutoresizingMaskIntoConstraints = false
-//        label.contentMode = .scaleAspectFit
-//        label.text = "Efficiency"
-//        label.textAlignment = .center
-//        return label
-//    }()
+
     
   
     // Label for displaying data for efficency
@@ -259,17 +233,6 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var n = 2
     var subscribed = false
     var unsubscribed = false
-   
-    
-    
-   
-    
-       
-        
-       
-        
-        
-    
     
     // TO calculate the overall Average.
     
@@ -321,10 +284,7 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         
         obj1.resetTimer(label: orderTimer1)
-        //        obj2.resetTimer(label: deliveryTimer1)
-        //        obj3.resetTimer(label: deliveryTimer2)
-        //        obj4.resetTimer(label: deliveryTimer3)
-        //        obj5.resetTimer(label: deliveryTimer4)
+        
         
         if oQ.isEmpty == false{
             
@@ -386,22 +346,7 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
     } // End of delivery queue function
     
     
-    // function to update time
     
-//    @objc func updateSaudiTime(){
-//        
-//        
-//        let date = Date()
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss"
-//        dateFormatter.timeZone = TimeZone.init(identifier: "Asia/Riyadh")
-//        
-//        let str = dateFormatter.string(from : date)
-//        
-//        
-//        self.dayTimeLabel.text = str
-        
-  //  } //End of function updateTime.
     
     
     // Setting Up MQTT
@@ -513,7 +458,6 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
         screenHeight = screenSize.height
         
         setUpMQTT()
-        
         self.setupLayout()
         self.expectedTime()
         
@@ -532,7 +476,6 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let headerView = UIView()
         headerView.backgroundColor = UIColor.black
         view.addSubview(headerView)
-        
         headerView.translatesAutoresizingMaskIntoConstraints = false
         headerView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
         headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
@@ -546,25 +489,7 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
         logo.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 0).isActive = true
         logo.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -290).isActive = true
         logo.heightAnchor.constraint(equalTo: headerView.heightAnchor, multiplier: 0.90).isActive = true
-        
         headerView.bringSubview(toFront: logo)
-        
-        
-        // Day Time Label
-
-//        headerView.addSubview(dayTimeLabel)
-
-//        dayTimeLabel.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 10).isActive = true
-//        dayTimeLabel.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 70).isActive = true
-//        dayTimeLabel.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -80).isActive = true
-//
-//        dayTimeLabel.heightAnchor.constraint(equalTo: headerView.heightAnchor, multiplier: 0.9).isActive = true
-//        dayTimeLabel.textAlignment = .center
-//        dayTimeLabel.font = UIFont(name: "Arial", size: 18.0)
-//        dayTimeLabel.textColor = UIColor.white
-        
-        
-        
         
         
         // LogOut Buttom at header
@@ -572,27 +497,12 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
         headerView.addSubview(logOutButton)
 
         logOutButton.translatesAutoresizingMaskIntoConstraints = false
-
         logOutButton.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 30).isActive = true
         logOutButton.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 285).isActive = true
         logOutButton.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -5).isActive = true
-
         logOutButton.heightAnchor.constraint(equalTo: headerView.heightAnchor, multiplier: 0.5).isActive = true
         logOutButton.layer.borderWidth = 0.5
         logOutButton.backgroundColor = UIColor.black
-        
-        // Efficenecy Time Table
-        
-//        headerView.addSubview(efficiencyLabel)
-        
-//        efficiencyLabel.translatesAutoresizingMaskIntoConstraints = false
-//        efficiencyLabel.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 15).isActive = true
-//        efficiencyLabel.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 182).isActive = true
-//        efficiencyLabel.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -85).isActive = true
-//        efficiencyLabel.heightAnchor.constraint(equalTo: headerView.heightAnchor, multiplier: 0.3).isActive = true
-//        efficiencyLabel.backgroundColor = UIColor.efficiencyLabelColor
-//        efficiencyLabel.layer.cornerRadius = 0.25
-//
         
         
         // Efficiency Data Label
@@ -629,12 +539,10 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
         //orderLabel.centerYAnchor.constraint(equalTo: orderView.centerYAnchor).isActive = true
         
         orderLabel.centerYAnchor.constraint(equalTo: orderView.centerYAnchor, constant: -80).isActive = true
-        
         orderLabel.heightAnchor.constraint(equalTo:  orderView.heightAnchor, multiplier: 0.2).isActive = true
         orderLabel.textAlignment = .center
         orderLabel.font = UIFont(name: "Arial", size: 20.0)
         orderLabel.textColor = UIColor.black
-        
         orderLabel.shadowOffset = CGSize(width: 2, height: 4)
         orderLabel.shadowColor = UIColor.white
         
@@ -651,10 +559,7 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         orderData.backgroundColor = UIColor.orderBGColor
         orderData.textAlignment = .center
-        
-        
         orderData.font = UIFont(name: "Arial", size: 70)
-        
         orderData.textColor = .white
         orderData.shadowOffset = CGSize(width: 8, height: 4)
         orderData.shadowColor = UIColor.black
@@ -673,9 +578,6 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         orderTimer1.isHidden = true
         
-        
-        
-        
         //Container for delivery view
         
         let deliveryView = UIView()
@@ -693,14 +595,13 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         
         deliveryView.addSubview(deliveryLabel)
+        
         deliveryLabel.centerXAnchor.constraint(equalTo: deliveryView.centerXAnchor, constant: -100).isActive = true
-        //        deliveryLabel.centerYAnchor.constraint(equalTo: deliveryView.centerYAnchor).isActive = true
         deliveryLabel.centerYAnchor.constraint(equalTo: deliveryView.centerYAnchor, constant: -80).isActive = true
         deliveryLabel.heightAnchor.constraint(equalTo:  deliveryView.heightAnchor, multiplier: 0.2).isActive = true
         deliveryLabel.textAlignment = .center
         deliveryLabel.font = UIFont(name: "Arial", size: 20.0)
         deliveryLabel.textColor = UIColor.black
-        
         deliveryLabel.shadowOffset = CGSize(width: 2, height: 4)
         deliveryLabel.shadowColor = UIColor.white
         
@@ -711,12 +612,9 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
         deliveryData.leadingAnchor.constraint(equalTo: deliveryView.leadingAnchor, constant: 10).isActive = true
         deliveryData.trailingAnchor.constraint(equalTo: deliveryView.trailingAnchor, constant: -220).isActive = true
         deliveryData.heightAnchor.constraint(equalTo: deliveryView.heightAnchor, multiplier: 0.78 ).isActive = true
-        
         deliveryData.backgroundColor = UIColor.deliveryBGColor
         deliveryData.textAlignment = .center
         deliveryData.font = UIFont(name: "Arial", size: 70.0)
-        
-        
         deliveryData.textColor = .white
         deliveryData.shadowOffset = CGSize(width: 8, height: 4)
         deliveryData.shadowColor = UIColor.black
@@ -731,7 +629,6 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
         deliveryTimer1.leadingAnchor.constraint(equalTo: deliveryData.trailingAnchor, constant: 10).isActive = true
         deliveryTimer1.trailingAnchor.constraint(equalTo: deliveryView.trailingAnchor, constant: -120).isActive = true
         deliveryTimer1.heightAnchor.constraint(equalTo: deliveryView.heightAnchor, multiplier: 0.35).isActive = true
-        
         deliveryTimer1.isHidden = true
         
         //Delivery Timer2
@@ -742,7 +639,6 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
         deliveryTimer2.leadingAnchor.constraint(equalTo: deliveryTimer1.trailingAnchor, constant: 10).isActive = true
         deliveryTimer2.trailingAnchor.constraint(equalTo: deliveryView.trailingAnchor, constant: -20).isActive = true
         deliveryTimer2.heightAnchor.constraint(equalTo: deliveryView.heightAnchor, multiplier: 0.35).isActive = true
-        
         deliveryTimer2.isHidden = true
         
         //Delivery Timer3
@@ -753,7 +649,6 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
         deliveryTimer3.leadingAnchor.constraint(equalTo: deliveryData.trailingAnchor, constant: 10).isActive = true
         deliveryTimer3.trailingAnchor.constraint(equalTo: deliveryView.trailingAnchor, constant:-120).isActive = true
         deliveryTimer3.heightAnchor.constraint(equalTo: deliveryView.heightAnchor, multiplier: 0.35).isActive = true
-        
         deliveryTimer3.isHidden = true
         
         //Delivery Timer4
@@ -764,7 +659,6 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
         deliveryTimer4.leadingAnchor.constraint(equalTo: deliveryTimer3.trailingAnchor, constant: 10).isActive = true
         deliveryTimer4.trailingAnchor.constraint(equalTo: deliveryView.trailingAnchor, constant: -20).isActive = true
         deliveryTimer4.heightAnchor.constraint(equalTo: deliveryView.heightAnchor, multiplier: 0.35).isActive = true
-        
         deliveryTimer4.isHidden = true
         
         
@@ -786,13 +680,11 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         deliveredView.addSubview( deliveredLabel)
         deliveredLabel.centerXAnchor.constraint(equalTo: deliveredView.centerXAnchor, constant:-100).isActive = true
-        //         deliveredLabel.centerYAnchor.constraint(equalTo: deliveredView.centerYAnchor).isActive = true
         deliveredLabel.centerYAnchor.constraint(equalTo: deliveredView.centerYAnchor, constant: -80).isActive = true
         deliveredLabel.heightAnchor.constraint(equalTo:  deliveredView.heightAnchor, multiplier: 0.2).isActive = true
         deliveredLabel.textAlignment = .center
         deliveredLabel.font = UIFont(name: "Arial", size: 20.0)
         deliveredLabel.textColor = UIColor.black
-        
         deliveredLabel.shadowOffset = CGSize(width: 2, height: 4)
         deliveredLabel.shadowColor = UIColor.white
         
@@ -805,11 +697,9 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
         deliveredData.leadingAnchor.constraint(equalTo: deliveredView.leadingAnchor, constant: 10).isActive = true
         deliveredData.trailingAnchor.constraint(equalTo: deliveredView.trailingAnchor, constant: -220).isActive = true
         deliveredData.heightAnchor.constraint(equalTo: deliveredView.heightAnchor, multiplier: 0.78).isActive = true
-        
         deliveredData.backgroundColor = UIColor.deliveredBGColor
         deliveredData.textAlignment = .center
         deliveredData.font = UIFont(name: "Arial", size: 70.0)
-        
         deliveredData.textColor = .white
         deliveredData.shadowOffset = CGSize(width: 8, height: 4)
         deliveredData.shadowColor = UIColor.black
@@ -822,10 +712,8 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
         averageDel.trailingAnchor.constraint(equalTo: deliveredView.trailingAnchor, constant: -10).isActive = true
         averageDel.heightAnchor.constraint(equalTo: deliveredView.heightAnchor, multiplier: 0.60).isActive = true
         averageDel.font = UIFont(name: "Arial", size: 38.0)
-        
         averageDel.backgroundColor = UIColor.black
         averageDel.textColor = UIColor.red
-        
         averageDel.textAlignment = NSTextAlignment.center
         
         
@@ -864,8 +752,6 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         //registering the cell
         tableViews.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        //It's give button x position and y position
-        
         tableViews.frame = CGRect(x: button.frame.origin.x, y: button.frame.origin.y, width: button.frame.width, height: 100)
         tableViews.delegate = self
         tableViews.dataSource = self
@@ -983,12 +869,9 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
         request.httpBody = httpBody
         let session = URLSession.shared
         session.dataTask(with: request) { (data, response, error) in
-            //                        if let response = response {
-            //                            print(response)
-            //                        }
+            
             if let data = data{
                 
-                // if data.isEmpty == false
                 
                 do{
                     let json = try JSONSerialization.jsonObject(with: data, options:.mutableContainers)
@@ -1011,18 +894,9 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
                                 let date = Date()
                                 let dateFormatter = DateFormatter()
                                 var stringToDate : Date
-                                
-                                
-                                
-                                
-                                
+                            
                                 for user in code{
-                                    
-                                    
-                                    
                                     if let userDict = user as? [String:Any] {
-                                        
-                                        
                                         if let status = userDict["status"] as? Int {
                                             if status == 1 {
                                                 
@@ -1056,22 +930,13 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
                                                     dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.000'Z'"
                                                     dateFormatter.timeZone = TimeZone.init(identifier: "Asia/Riyadh")
                                                     
-                                                    
-                                                    
                                                     //difference in Time
                                                     
                                                     stringToDate = dateFormatter.date(from: deliveryQueData)!
                                                     
                                                     // return Seconds In Delivery Queue return Type Int
                                                     let secondsInDelivery = date.seconds(from: stringToDate)
-                                                    
-                                                    
-                                                    
-                                                    // self.updateVechileTimer(sec: secondsInDelivery, stat: status)
-                                                    
                                                     deliveryQueueArr += [secondsInDelivery]
-                                                    
-                                                    
                                                     
                                                 }//End of delivery Queue Data
                                                 
@@ -1080,7 +945,6 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
                                             } // End of Status == 2 Loop
                                                 
                                             else if status == 3 {
-                                                
                                                 
                                                 if let deliveredQueData = userDict["delivery_queue"] as? String {
                                                     
@@ -1093,13 +957,10 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
                                                     //Differenece in Time
                                                     
                                                     stringToDate = dateFormatter.date(from: deliveredQueData)!
-                                                    let secondsInOrder = date.seconds(from: stringToDate) // return Seconds In Order Queue return Type Int
+                                                    let secondsInOrder = date.seconds(from: stringToDate)
+                                                    // return Seconds In Order Queue return Type Int
                                                     
-                                                    //deliveredQueueArr += [secondsInOrder]
                                                     secondsInOrder1 = secondsInOrder
-                                                    
-                                                  
-                                                    
                                                     
                                                 }//End of Order Queue Loop
                                                 
@@ -1153,10 +1014,7 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
                     print(error)
                 }//end of catch
                 
-                // }//End of If Empty Startement
-                //            else{
-                //                print("empty data")
-                //            }
+                
             }// end of data task
             }.resume()//end of seesion.datatask
     } // End of Fuction to bring resturents data
@@ -1262,9 +1120,6 @@ extension UIColor {
         return UIColor.init(red: CGFloat((rgb & 0xFF0000)>>16)/255.0,
                             green: CGFloat((rgb & 0x00FF00)>>8)/255.0,
                             blue : CGFloat(rgb & 0x0000FF)/255.0, alpha:1.0)
-        
-        
-        
     } // End of colorFromHex
     
     static let orderBGColor = UIColor().colorFromHex("#5271C2")
@@ -1285,9 +1140,8 @@ extension Date {
     }
 }// End of Extension Date
 
-// Function to get Vechile Timer
 
-
+// Class & Function to get Vechile Timer
 
 class VechileCurrentTime {
     
@@ -1394,7 +1248,7 @@ class VechileCurrentTime {
     func hide(label:UILabel){
         let label : UILabel = label
         DispatchQueue.main.async {
-            label.isHidden = true
+        label.isHidden = true
         }
         
     }// End of function Hide.
@@ -1426,75 +1280,50 @@ extension HomeScreen: CocoaMQTTDelegate {
     // These two methods are all we care about for now
     
     func mqtt(_ mqtt: CocoaMQTT, didConnect host: String, port: Int) {
-        
-        
     }
     
     func mqtt(_ mqtt: CocoaMQTT, didReceiveMessage message: CocoaMQTTMessage, id: UInt16 ) {
         
         if let msgString = message.string {
             pressNow()
-            
         }
-        
     }
     
     // Other required methods for CocoaMQTTDelegate
     func mqtt(_ mqtt: CocoaMQTT, didReceive trust: SecTrust, completionHandler: @escaping (Bool) -> Void) {
         completionHandler(true)
-       
-        
     }
     
     func mqtt(_ mqtt: CocoaMQTT, didConnectAck ack: CocoaMQTTConnAck) {
         mqtt.subscribe("world")
-       
-        
     }
     
     func mqtt(_ mqtt: CocoaMQTT, didPublishMessage message: CocoaMQTTMessage, id: UInt16) {
-      
-        
     }
     
     func mqtt(_ mqtt: CocoaMQTT, didPublishAck id: UInt16) {
-        
-        
     }
     
     func mqtt(_ mqtt: CocoaMQTT, didSubscribeTopic topic: String) {
-        
-        
-        
     }
     
     func mqtt(_ mqtt: CocoaMQTT, didUnsubscribeTopic topic: String) {
-       
-        
     }
     
     func mqttDidPing(_ mqtt: CocoaMQTT) {
-       
-        
     }
     
     func mqttDidReceivePong(_ mqtt: CocoaMQTT) {
-      
-        
     }
     
     func mqttDidDisconnect(_ mqtt: CocoaMQTT, withError err: Error?) {
-      
         setUpMQTT()
         sleep(3)
-        
         pressNow()
         
     }
     
     func _console(_ info: String) {
-        
-        
     }
 }
 
