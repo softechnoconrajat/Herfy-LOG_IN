@@ -600,13 +600,13 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
         headerView.addSubview(efficiencyDataLabel)
         
         efficiencyDataLabel.translatesAutoresizingMaskIntoConstraints = false
-        efficiencyDataLabel.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 35).isActive = true
-        efficiencyDataLabel.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 90).isActive = true
+        efficiencyDataLabel.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 30).isActive = true
+        efficiencyDataLabel.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 115).isActive = true
         efficiencyDataLabel.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -95).isActive = true
-        efficiencyDataLabel.heightAnchor.constraint(equalTo: headerView.heightAnchor, multiplier: 0.7).isActive = true
+        efficiencyDataLabel.heightAnchor.constraint(equalTo: headerView.heightAnchor, multiplier: 0.5).isActive = true
         efficiencyDataLabel.backgroundColor = UIColor.black
         efficiencyDataLabel.textColor = UIColor.white
-        efficiencyDataLabel.font = UIFont(name: "Arial", size: 25.0)
+        efficiencyDataLabel.font = UIFont(name: "Arial", size: 20.0)
         
         
         //Container for order view
@@ -619,11 +619,6 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
         orderView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant : 3.5).isActive = true
         orderView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant : -3.5).isActive = true
         orderView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.29).isActive = true
-        
-        
-        
-        
-        
         
         
         // Contenet of Order View conatainer
