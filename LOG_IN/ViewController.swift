@@ -33,7 +33,7 @@ class ViewController: UIViewController {
 //        if userNameTxt.text == "test" && passWordTxt.text == "test" {
         
         let parameters = ["mob" : userNameTxt.text , "password" : passWordTxt.text]
-        guard let url = URL(string: "http://13.126.194.18:4200/api/login") else { return}
+        guard let url = URL(string: "http://13.233.9.178:4200/api/login") else { return}
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -82,7 +82,7 @@ func setUpLayout(){
         userNameTxt.layer.borderColor = UIColor.gray.cgColor
         userNameTxt.layer.borderWidth = 1
         userNameTxt.layer.cornerRadius = 5
-        userNameTxt.placeholder =  "USERNAME"
+        userNameTxt.placeholder =  "  USERNAME"
         userNameTxt.text = ""
         
         view.addSubview(userNameTxt)
@@ -98,7 +98,7 @@ func setUpLayout(){
         passWordTxt.layer.borderColor = UIColor.gray.cgColor
         passWordTxt.layer.borderWidth = 1
         passWordTxt.layer.cornerRadius = 5
-        passWordTxt.placeholder =  "PASSWORD"
+        passWordTxt.placeholder =  "  PASSWORD"
         passWordTxt.text = ""
         
         view.addSubview(passWordTxt)

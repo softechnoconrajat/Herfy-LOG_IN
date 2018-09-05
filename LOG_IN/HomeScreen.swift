@@ -354,7 +354,7 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func setUpMQTT() {
         
         let clientID = "CocoaMQTT-" + String(ProcessInfo().processIdentifier)
-        mqtt = CocoaMQTT(clientID: clientID, host: "13.126.194.18", port: 1883)
+        mqtt = CocoaMQTT(clientID: clientID, host: "13.233.9.178", port: 1883)
         mqtt.willMessage = CocoaMQTTWill(topic: "/will", message: "dieout")
         mqtt.keepAlive = 60
         mqtt.connect()
@@ -378,7 +378,7 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func expectedTime()->(a:Array<Int>, b:Array<Int>, c:Array<String>, restDetails:[String : Int]){
         
         
-        let url = URL(string: "http://13.126.194.18:4200/api/expTime")
+        let url = URL(string: "http://13.233.9.178:4200/api/expTime")
         
         do{
             let data =  try Data(contentsOf: url!)
@@ -856,7 +856,7 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         let parameters = ["resID": restCode]
         
-        guard let url = URL(string : "http://13.126.194.18:4200/api/log") else {return}
+        guard let url = URL(string : "http://13.233.9.178:4200/api/log") else {return}
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -1043,12 +1043,24 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }//End of for loop
         
         //Calculating Efficiency
-        efficiencyPercentage = Float(counterEfficienct * 100/noOfOrderDelivered)
         
-        DispatchQueue.main.async {
-            self.efficiencyDataLabel.text = "Efficiency:\(efficiencyPercentage)%"
+        if noOfOrderDelivered > 0{
+           
+            efficiencyPercentage = Float(counterEfficienct * 100/noOfOrderDelivered)
+            
+            DispatchQueue.main.async {
+                self.efficiencyDataLabel.text = "Efficiency:\(efficiencyPercentage)%"
+            }
+            self.efficiencyViewColorChange(efficiencyPercentage)
         }
-        self.efficiencyViewColorChange(efficiencyPercentage)
+        else{
+            
+            DispatchQueue.main.async {
+                self.efficiencyDataLabel.text = "Efficiency:\(efficiencyPercentage)%"
+            }
+            
+        }
+        
         
     }//End of Function rrayEfficiencyData
     
